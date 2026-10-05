@@ -6,7 +6,13 @@ from anthropic import Anthropic
 from src.prompts_creative import get_system_prompt
 
 load_dotenv()
-client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+# Las claves de usuario (sk-ant-usr-...) no están ligadas a un workspace y requieren este header
+workspace_id = os.getenv("ANTHROPIC_WORKSPACE_ID")
+client = Anthropic(
+    api_key=os.getenv("ANTHROPIC_API_KEY"),
+    default_headers={"anthropic-workspace-id": workspace_id} if workspace_id else None,
+)
 
 
 def load_brand_guidelines(docs_path: str = "docs") -> str:
@@ -37,15 +43,15 @@ def generate_creative_concept(concept: str, docs_path: str = "docs") -> dict:
     
     response = client.messages.create(
         model="claude-sonnet-5-5",  # Modelo actual para producción
-        max_tokens=2500,                   # Margen suficiente para no cortar el JSON
-        temperature=0.7,
+        max_tokens=16000,                  # Incluye margen para el razonamiento adaptativo
         system=system_prompt,
         messages=[
             {"role": "user", "content": f"Crea una campaña/post para: {concept}"}
         ]
     )
-    
-    raw_content = response.content[0].text.strip()
+
+    # El primer bloque puede ser de "thinking"; se toma el bloque de texto
+    raw_content = next(b.text for b in response.content if b.type == "text").strip()
     
     # Limpia marcas de bloque de código (```json ... ```) si Claude las incluye
     cleaned_content = re.sub(r"^```(?:json)?\s*|\s*```$", "", raw_content, flags=re.MULTILINE).strip()
