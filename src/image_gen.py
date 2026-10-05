@@ -1,5 +1,5 @@
 import os
-import requests
+import base64
 from dotenv import load_dotenv
 from openai import OpenAI
 
@@ -8,23 +8,20 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def generate_image(prompt_text: str, output_path: str, size: str = "1024x1024") -> str:
     """
-    Genera una imagen con DALL-E 3 según la resolución especificada.
-    - Feed: 1024x1024 ($0.04 USD)
-    - Stories: 1024x1792 ($0.08 USD)
+    Genera una imagen con gpt-image-2 (dall-e-3 fue retirado de la API) según la resolución especificada.
     """
     try:
-        print(f"🎨 Generando imagen DALL-E 3 ({size}) para {output_path}...")
+        print(f"🎨 Generando imagen gpt-image-2 ({size}) para {output_path}...")
 
         response = client.images.generate(
-            model="dall-e-3",
+            model="gpt-image-2",
             prompt=prompt_text,
             size=size,
-            quality="standard",
             n=1
         )
 
-        image_url = response.data[0].url
-        image_bytes = requests.get(image_url).content
+        # Los modelos gpt-image devuelven la imagen en base64, no como URL
+        image_bytes = base64.b64decode(response.data[0].b64_json)
         
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
 

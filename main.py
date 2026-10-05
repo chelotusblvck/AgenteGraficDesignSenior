@@ -33,11 +33,11 @@ def main():
         size="1024x1024"
     )
 
-    # 4. Generar imagen para Stories (1024x1792)
+    # 4. Generar imagen para Stories (1008x1792)
     generate_image(
         prompt_text=result["prompt_dalle_story"],
         output_path="output/story_garage360.png",
-        size="1024x1792"
+        size="1008x1792"  # 9:16 exacto (gpt-image-2 exige múltiplos de 16)
     )
     
     print("\n✨ ¡Proceso completado! Se generaron el archivo .md y las 2 imágenes en /output")
