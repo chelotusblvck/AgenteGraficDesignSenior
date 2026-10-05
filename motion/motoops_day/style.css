@@ -1,0 +1,134 @@
+/* Tokens del proyecto -> tokens de marca (brand/tokens/tokens.css) */
+:root {
+  --black-workshop: var(--g360-ink);
+  --accent: var(--g360-orange);
+  --text: #FFFFFF;
+  --muted: rgba(255, 255, 255, 0.72);
+  --hairline: rgba(255, 255, 255, 0.12);
+  --surface: var(--g360-graphite);
+}
+@property --t { syntax: "<integer>"; inherits: true; initial-value: 510; }
+@property --n { syntax: "<integer>"; inherits: true; initial-value: 0; }
+@property --m { syntax: "<integer>"; inherits: true; initial-value: 0; }
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 540px; height: 960px; overflow: hidden; background: var(--black-workshop); }
+body { font-family: var(--g360-font-body); color: var(--text); }
+#stage { position: relative; width: 540px; height: 960px; background: var(--black-workshop); overflow: hidden; }
+.mono { font-family: var(--g360-font-mono); font-weight: 500; }
+.scene { position: absolute; inset: 90px 0 0 0; visibility: hidden; }
+
+/* HUD */
+#clock-label { position: absolute; left: 32px; top: 32px; font-size: 11px; letter-spacing: .08em; color: var(--muted); opacity: 0; }
+#clock { position: absolute; left: 32px; top: 48px; display: flex; align-items: baseline; gap: 8px; height: 40px; }
+#clock-digits { font-size: 36px; line-height: 40px; opacity: 0;
+  counter-reset: hh round(down, calc(var(--t) / 60), 1) mm mod(var(--t), 60);
+}
+#clock-digits::before { content: counter(hh, decimal-leading-zero) ":" counter(mm, decimal-leading-zero); }
+.ampm { font-size: 14px; color: var(--accent); }
+#steps { position: absolute; right: 32px; top: 58px; font-size: 12px; color: var(--muted); opacity: 0; }
+.step { position: absolute; right: 0; top: 0; white-space: nowrap; visibility: hidden; }
+#hud-rule { position: absolute; left: 32px; right: 32px; top: 104px; height: 1px; background: var(--hairline); opacity: 0; }
+#progress { position: absolute; left: 32px; right: 32px; bottom: 56px; display: flex; gap: 8px; opacity: 0; }
+.seg { position: relative; flex: 1; height: 4px; background: var(--hairline); overflow: hidden; }
+.seg b { position: absolute; inset: 0; background: var(--accent); transform-origin: left center; transform: scaleX(0); }
+
+/* Título de escena */
+.bar { position: absolute; left: 32px; top: 132px; width: 48px; height: 6px; background: var(--accent); opacity: 0; }
+.title { position: absolute; left: 32px; top: 148px; font: 700 44px/1.05 var(--g360-font-display); text-transform: uppercase; opacity: 0; }
+
+/* Placa técnica (la caja y cada fila son hermanas: opacidades independientes) */
+.plate { position: absolute; left: 32px; right: 32px; top: 232px; }
+.plate-bg { position: absolute; inset: 0; background: var(--surface); border: 1px solid var(--hairline); border-radius: var(--g360-radius); opacity: 0; }
+.p-row { position: absolute; left: 16px; right: 16px; opacity: 0; }
+.lbl { font: 500 11px var(--g360-font-mono); letter-spacing: .08em; color: var(--muted); text-transform: uppercase; }
+.val { font: 600 18px/1.25 var(--g360-font-body); color: var(--text); margin-top: 4px; }
+.rule { position: absolute; left: 16px; right: 16px; height: 1px; background: var(--hairline); opacity: 0; }
+
+.ot-id { position: absolute; left: 16px; top: 14px; height: 52px; width: 260px; }
+.ot-id .lbl { position: absolute; left: 0; top: 0; opacity: 0; }
+.ot-id .ph, .ot-id .num { position: absolute; left: 0; top: 16px; font: 500 30px/36px var(--g360-font-mono); white-space: nowrap; }
+.ot-id .ph { color: var(--hairline); opacity: 0; }
+.ot-id .num { overflow: hidden; width: 0; opacity: 0; }
+.badge { position: absolute; right: 16px; top: 22px; font: 500 11px var(--g360-font-mono); letter-spacing: .04em; padding: 6px 10px; border-radius: var(--g360-radius); white-space: nowrap; opacity: 0; }
+.b-accent { background: var(--accent); color: var(--black-workshop); }
+.b-ok { background: var(--g360-success); color: #fff; }
+.b-outline { border: 1px solid var(--hairline); color: var(--muted); }
+
+/* Contador numérico animado (enteros registrados + counter) */
+.num-n { counter-reset: v var(--n); }
+.num-n::before { content: counter(v); }
+
+/* Escena 2 / 3 */
+.ot-num { position: absolute; left: 16px; top: 22px; font: 500 30px/36px var(--g360-font-mono); opacity: 0; }
+.it-stock { position: absolute; right: 16px; font-size: 24px; line-height: 28px; text-align: right; white-space: nowrap; opacity: 0; display: flex; align-items: baseline; }
+.it-stock em { font-style: normal; font-size: 11px; color: var(--muted); }
+.it-chip { position: absolute; right: 92px; font-size: 12px; color: var(--accent); opacity: 0; }
+.mb { position: absolute; left: 16px; right: 16px; height: 6px; background: var(--hairline); border-radius: 3px; overflow: hidden; opacity: 0; }
+.mb i { position: absolute; inset: 0; background: var(--accent); transform-origin: left center; }
+.cb { position: absolute; left: 16px; width: 32px; height: 32px; border: 1px solid var(--hairline); border-radius: var(--g360-radius); opacity: 0; }
+.ck { position: absolute; left: 16px; opacity: 0; }
+.ck path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.ck-ok { right: 16px; }
+.cnt { position: absolute; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: baseline; }
+.cnt .lbl { opacity: 0; }
+.cnt-n { font-size: 24px; opacity: 0; display: flex; }
+
+/* Escena 4 */
+.notif { position: absolute; left: 32px; right: 32px; top: 232px; height: 270px; }
+.notif .stripe { position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: var(--accent); border-radius: var(--g360-radius) 0 0 var(--g360-radius); opacity: 0; }
+.notif .n-head, .notif .n-title, .notif .n-body, .notif .n-foot { position: absolute; left: 28px; right: 20px; opacity: 0; }
+.notif .n-head { top: 20px; display: flex; justify-content: space-between; }
+.notif .n-title { top: 52px; font: 700 36px/1.05 var(--g360-font-display); text-transform: uppercase; }
+.notif .n-body { top: 150px; font: 400 16px/1.4 var(--g360-font-body); color: var(--muted); }
+.notif .n-body b { color: var(--text); font-weight: 600; }
+.notif .n-foot { top: 222px; display: flex; align-items: center; gap: 10px; }
+.notif .n-ck { width: 22px; height: 22px; flex: none; }
+.notif .n-ck path { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.cta-bar { position: absolute; left: 32px; top: 215px; width: 48px; height: 6px; background: var(--accent); opacity: 0; }
+.cta-h { position: absolute; left: 32px; top: 233px; font: 700 64px/1 var(--g360-font-display); text-transform: uppercase; }
+.cta-h span { display: block; opacity: 0; }
+.cta-sub { position: absolute; left: 32px; top: 449px; font: 400 20px/1.4 var(--g360-font-body); color: var(--muted); opacity: 0; }
+.cta-url { position: absolute; left: 32px; top: 509px; font: 500 18px/56px var(--g360-font-mono); padding: 0 24px; height: 56px; background: var(--accent); color: var(--black-workshop); border-radius: var(--g360-radius); opacity: 0; }
+
+/* Logos de apertura y cierre (mismo formato que garage360_launch: escala 0.9 -> 1 + fundido) */
+#intro, #outro { inset: 0; display: flex; align-items: center; justify-content: center; }
+#intro-logo, #outro-logo { width: 360px; opacity: 0; }
+
+/* Título introductorio (alineado a la izquierda, bloque centrado en el lienzo) */
+#title-card { inset: 0; }
+#tc-bar { position: absolute; left: 48px; top: 378px; width: 48px; height: 6px; background: var(--accent); opacity: 0; }
+#tc-title { position: absolute; left: 48px; top: 396px; font: 700 80px/1 var(--g360-font-display); color: var(--text); opacity: 0; }
+#tc-title span { display: block; }
+
+/* Escena 1: botón destacado para agregar fotos */
+.btn-photo { position: absolute; left: 16px; right: 16px; top: 384px; height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--accent); color: var(--black-workshop); border-radius: var(--g360-radius); font: 600 16px var(--g360-font-body); opacity: 0; }
+.btn-ring { position: absolute; left: 16px; right: 16px; top: 384px; height: 52px; border: 2px solid var(--accent); border-radius: var(--g360-radius); opacity: 0; }
+.btn-chip { position: absolute; right: 28px; top: 398px; font-size: 11px; line-height: 24px; padding: 0 8px; background: var(--black-workshop); color: var(--accent); border-radius: var(--g360-radius); opacity: 0; }
+
+/* Escena 3: vista del cliente */
+.pg { display: flex; justify-content: space-between; }
+.pg-i { position: relative; flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 10px; letter-spacing: .06em; color: var(--muted); }
+.pg-i i { display: block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--hairline); background: transparent; }
+.pg-i::after { content: ""; position: absolute; left: 22px; right: 8px; top: 6px; height: 2px; background: var(--hairline); }
+.pg-i:last-child::after { display: none; }
+.pg-i.done i { background: var(--accent); border-color: var(--accent); }
+.pg-i.done::after { background: var(--accent); }
+.pg-i.now i { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255, 90, 31, .25); }
+.pg-i.now span, .pg-i.done span { color: var(--text); }
+.photo { position: absolute; top: 158px; width: 143px; height: 88px; background: #1b1e22; border: 1px solid var(--hairline); border-radius: var(--g360-radius); overflow: hidden; opacity: 0; }
+.photo svg { position: absolute; left: 0; top: -10px; }
+.photo span { position: absolute; left: 0; right: 0; bottom: 0; padding: 5px 6px; font-size: 8px; letter-spacing: .04em; color: var(--muted); background: rgba(17, 19, 21, .88); }
+.inv { display: flex; align-items: baseline; gap: 12px; height: 28px; }
+.inv span { flex: 1; font: 500 15px var(--g360-font-body); }
+.inv em { font-style: normal; font-size: 11px; color: var(--muted); }
+.inv b { min-width: 76px; text-align: right; font-size: 15px; font-weight: 500; }
+.tot-row { position: absolute; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: baseline; }
+.tot-row .lbl { opacity: 0; }
+.tot { font-size: 34px; display: flex; opacity: 0; color: var(--text); }
+.tot::before { content: "$"; }
+@counter-style pad3 { system: extends decimal; pad: 3 "0"; }
+.tot .num-n { counter-reset: v var(--n); }
+.tot .num-n::before { content: counter(v); }
+.tot .num-m { counter-reset: w var(--m); }
+.tot .num-m::before { content: "." counter(w, pad3); }

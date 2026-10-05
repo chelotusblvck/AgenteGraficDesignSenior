@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Un día con MotoOps (30 s)</title>
+<link rel="stylesheet" href="../../brand/tokens/tokens.css">
+<link rel="stylesheet" href="../../brand/tokens/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Lienzo 540x960 CSS px -> 1080x1920 (deviceScaleFactor 2). 900 frames @30fps. Un módulo por escena en scenes/ -->
+<div id="stage">
+  <section id="intro" class="scene"><img id="intro-logo" src="../../brand/logo/garage360-horizontal-blanco.svg" alt="Garage360"></section>
+  <section id="title-card" class="scene"><i id="tc-bar"></i><h1 id="tc-title"><span>Un día con</span><span>MotoOps</span></h1></section>
+  <section id="hud"></section>
+  <section id="s1" class="scene"></section>
+  <section id="s2" class="scene"></section>
+  <section id="s3" class="scene"></section>
+  <section id="s4" class="scene"></section>
+  <section id="s5" class="scene"></section>
+  <section id="outro" class="scene"><img id="outro-logo" src="../../brand/submarcas/motoops-horizontal-blanco.svg" alt="MotoOps by Garage360"></section>
+</div>
+<script src="timeline.js"></script>
+<script src="scenes/intro-outro.js"></script>
+<script src="scenes/hud.js"></script>
+<script src="scenes/scene1-recepcion.js"></script>
+<script src="scenes/scene2-diagnostico.js"></script>
+<script src="scenes/scene3-cliente.js"></script>
+<script src="scenes/scene4-calidad.js"></script>
+<script src="scenes/scene5-cierre.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
