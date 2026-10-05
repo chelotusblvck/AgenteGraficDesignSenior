@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Garage360 · Lanzamiento MotoOps (15 s)</title>
+<link rel="stylesheet" href="../../brand/tokens/tokens.css">
+<link rel="stylesheet" href="../../brand/tokens/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Lienzo de 540x960 CSS px; se renderiza a 1080x1920 (deviceScaleFactor 2). Cada escena es un módulo en scenes/ -->
+<div id="stage">
+  <section id="s1" class="scene">
+    <img id="s1-logo" src="../../brand/logo/garage360-horizontal-blanco.svg" alt="Garage360">
+  </section>
+
+  <section id="s2" class="scene">
+    <div id="s2-tablet"><div id="s2-camera"><div id="s2-device"><div id="s2-screen"><div id="s2-moto" class="layer"></div><div id="s2-auto" class="layer"></div></div></div></div></div>
+  </section>
+
+  <div id="veil"></div>
+
+  <section id="s3" class="scene">
+    <img id="s3-logo" src="../../brand/submarcas/motoops-horizontal-blanco.svg" alt="MotoOps by Garage360">
+    <img id="s3-logo2" src="../../brand/submarcas/autoops-horizontal-blanco.svg" alt="AutoOps by Garage360">
+    <h1 id="s3-cta"><span>EQUIPA Y</span><span>DIGITALIZA</span><span>TU TALLER</span></h1>
+  </section>
+
+  <section id="s4" class="scene">
+    <div id="s4-phone"><div id="s4-screen"></div></div>
+  </section>
+
+  <div id="endveil"></div>
+</div>
+<script src="timeline.js"></script>
+<script src="scenes/scene1-intro.js"></script>
+<script src="scenes/scene2-tablet.js"></script>
+<script src="scenes/scene3-cta.js"></script>
+<script src="scenes/scene4-instagram.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
