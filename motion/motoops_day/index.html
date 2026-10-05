@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Un día con MotoOps (30 s)</title>
+<link rel="stylesheet" href="../../brand/tokens/tokens.css">
+<link rel="stylesheet" href="../../brand/tokens/fonts.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Lienzo 540x960 CSS px -> 1080x1920 (deviceScaleFactor 2). 900 frames @30fps. Un módulo por escena en scenes/ -->
+<div id="stage">
+  <section id="hud"></section>
+  <section id="s1" class="scene"></section>
+  <section id="s2" class="scene"></section>
+  <section id="s3" class="scene"></section>
+  <section id="s4" class="scene"></section>
+</div>
+<script src="timeline.js"></script>
+<script src="scenes/hud.js"></script>
+<script src="scenes/scene1-recepcion.js"></script>
+<script src="scenes/scene2-diagnostico.js"></script>
+<script src="scenes/scene3-calidad.js"></script>
+<script src="scenes/scene4-cierre.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
