@@ -31,10 +31,10 @@ const Scene4Cierre = {
 
     // CTA final de marca (entra desde X + 12, con la notificación ya fuera).
     const C = X + 12;
-    appear(s.querySelector(".cta-logo"), C, null, 12);
-    appear(s.querySelector(".cta-bar"), C + 14, null, 0);
-    s.querySelectorAll(".cta-h span").forEach((sp, i) => appear(sp, C + 18 + i * 8, null, 18));
-    appear(s.querySelector(".cta-sub"), C + 46, null, 10);
-    appear(s.querySelector(".cta-url"), C + 62, null, 10);
+    appear(s.querySelector(".cta-logo"), C, Z, 12);
+    appear(s.querySelector(".cta-bar"), C + 14, Z, 0);
+    s.querySelectorAll(".cta-h span").forEach((sp, i) => appear(sp, C + 18 + i * 8, Z, 18));
+    appear(s.querySelector(".cta-sub"), C + 46, Z, 10);
+    appear(s.querySelector(".cta-url"), C + 62, Z, 10);
   },
 };

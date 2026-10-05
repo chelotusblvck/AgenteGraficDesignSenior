@@ -10,13 +10,16 @@
 <body>
 <!-- Lienzo 540x960 CSS px -> 1080x1920 (deviceScaleFactor 2). 900 frames @30fps. Un módulo por escena en scenes/ -->
 <div id="stage">
+  <section id="intro" class="scene"><img id="intro-logo" src="../../brand/logo/garage360-horizontal-blanco.svg" alt="Garage360"></section>
   <section id="hud"></section>
   <section id="s1" class="scene"></section>
   <section id="s2" class="scene"></section>
   <section id="s3" class="scene"></section>
   <section id="s4" class="scene"></section>
+  <section id="outro" class="scene"><img id="outro-logo" src="../../brand/submarcas/motoops-horizontal-blanco.svg" alt="MotoOps by Garage360"></section>
 </div>
 <script src="timeline.js"></script>
+<script src="scenes/intro-outro.js"></script>
 <script src="scenes/hud.js"></script>
 <script src="scenes/scene1-recepcion.js"></script>
 <script src="scenes/scene2-diagnostico.js"></script>

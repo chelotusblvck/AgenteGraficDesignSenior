@@ -90,3 +90,7 @@ body { font-family: var(--g360-font-body); color: var(--text); }
 .cta-h span { display: block; opacity: 0; }
 .cta-sub { position: absolute; left: 32px; top: 574px; font: 400 20px/1.4 var(--g360-font-body); color: var(--muted); opacity: 0; }
 .cta-url { position: absolute; left: 32px; top: 640px; font: 500 18px/56px var(--g360-font-mono); padding: 0 24px; height: 56px; background: var(--accent); color: var(--black-workshop); border-radius: var(--g360-radius); opacity: 0; }
+
+/* Logos de apertura y cierre (mismo formato que garage360_launch: escala 0.9 -> 1 + fundido) */
+#intro, #outro { inset: 0; display: flex; align-items: center; justify-content: center; }
+#intro-logo, #outro-logo { width: 360px; opacity: 0; }

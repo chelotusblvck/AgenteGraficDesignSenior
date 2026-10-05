@@ -1,4 +1,5 @@
 // Orquestación: cada módulo registra sus pistas sobre sus propios elementos.
+IntroOutro.init();
 Hud.init();
 Scene1Recepcion.init();
 Scene2Diagnostico.init();
