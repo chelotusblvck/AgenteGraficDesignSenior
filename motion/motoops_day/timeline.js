@@ -1,10 +1,10 @@
-// Línea de tiempo en FRAMES a 30 fps: logo de apertura (75) + título (75) + contenido (900) + logo de cierre (75) = 1125 (37,5 s).
-// Todo el contenido se escribe en frames LOCALES 0-900; track() lo desplaza OFFSET frames automáticamente.
+// Línea de tiempo en FRAMES a 30 fps: logo de apertura (75) + título (75) + contenido (1125) + logo de cierre (75) = 1425 (47,5 s).
+// Todo el contenido se escribe en frames LOCALES 0-1125; track() lo desplaza OFFSET frames automáticamente.
 // Apertura y cierre usan trackAbs() con frames absolutos.
-const FPS = 30, INTRO = 75, TITLE = 75, OFFSET = INTRO + TITLE, CONTENT = 900, TAIL = 75;
+const FPS = 30, INTRO = 75, TITLE = 75, OFFSET = INTRO + TITLE, CONTENT = 1125, TAIL = 75;
 const TOTAL_FRAMES = OFFSET + CONTENT + TAIL, TOTAL_MS = (TOTAL_FRAMES / FPS) * 1000;
-const SCENES = { s1: [0, 225], s2: [225, 450], s3: [450, 675], s4: [675, 900] };
-const CTA_FRAME = 780;
+const SCENES = { s1: [0, 225], s2: [225, 450], s3: [450, 675], s4: [675, 900], s5: [900, 1125] };
+const CTA_FRAME = 1005;
 
 const EASE = {
   linear: "linear",

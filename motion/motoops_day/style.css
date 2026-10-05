@@ -9,6 +9,7 @@
 }
 @property --t { syntax: "<integer>"; inherits: true; initial-value: 510; }
 @property --n { syntax: "<integer>"; inherits: true; initial-value: 0; }
+@property --m { syntax: "<integer>"; inherits: true; initial-value: 0; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { width: 540px; height: 960px; overflow: hidden; background: var(--black-workshop); }
@@ -99,3 +100,35 @@ body { font-family: var(--g360-font-body); color: var(--text); }
 #tc-bar { position: absolute; left: 48px; top: 378px; width: 48px; height: 6px; background: var(--accent); opacity: 0; }
 #tc-title { position: absolute; left: 48px; top: 396px; font: 700 80px/1 var(--g360-font-display); color: var(--text); opacity: 0; }
 #tc-title span { display: block; }
+
+/* Escena 1: botón destacado para agregar fotos */
+.btn-photo { position: absolute; left: 16px; right: 16px; top: 384px; height: 52px; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--accent); color: var(--black-workshop); border-radius: var(--g360-radius); font: 600 16px var(--g360-font-body); opacity: 0; }
+.btn-ring { position: absolute; left: 16px; right: 16px; top: 384px; height: 52px; border: 2px solid var(--accent); border-radius: var(--g360-radius); opacity: 0; }
+.btn-chip { position: absolute; right: 28px; top: 398px; font-size: 11px; line-height: 24px; padding: 0 8px; background: var(--black-workshop); color: var(--accent); border-radius: var(--g360-radius); opacity: 0; }
+
+/* Escena 3: vista del cliente */
+.pg { display: flex; justify-content: space-between; }
+.pg-i { position: relative; flex: 1; display: flex; flex-direction: column; gap: 8px; font-size: 10px; letter-spacing: .06em; color: var(--muted); }
+.pg-i i { display: block; width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--hairline); background: transparent; }
+.pg-i::after { content: ""; position: absolute; left: 22px; right: 8px; top: 6px; height: 2px; background: var(--hairline); }
+.pg-i:last-child::after { display: none; }
+.pg-i.done i { background: var(--accent); border-color: var(--accent); }
+.pg-i.done::after { background: var(--accent); }
+.pg-i.now i { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255, 90, 31, .25); }
+.pg-i.now span, .pg-i.done span { color: var(--text); }
+.photo { position: absolute; top: 158px; width: 143px; height: 88px; background: #1b1e22; border: 1px solid var(--hairline); border-radius: var(--g360-radius); overflow: hidden; opacity: 0; }
+.photo svg { position: absolute; left: 0; top: -10px; }
+.photo span { position: absolute; left: 0; right: 0; bottom: 0; padding: 5px 6px; font-size: 8px; letter-spacing: .04em; color: var(--muted); background: rgba(17, 19, 21, .88); }
+.inv { display: flex; align-items: baseline; gap: 12px; height: 28px; }
+.inv span { flex: 1; font: 500 15px var(--g360-font-body); }
+.inv em { font-style: normal; font-size: 11px; color: var(--muted); }
+.inv b { min-width: 76px; text-align: right; font-size: 15px; font-weight: 500; }
+.tot-row { position: absolute; left: 16px; right: 16px; display: flex; justify-content: space-between; align-items: baseline; }
+.tot-row .lbl { opacity: 0; }
+.tot { font-size: 34px; display: flex; opacity: 0; color: var(--text); }
+.tot::before { content: "$"; }
+@counter-style pad3 { system: extends decimal; pad: 3 "0"; }
+.tot .num-n { counter-reset: v var(--n); }
+.tot .num-n::before { content: counter(v); }
+.tot .num-m { counter-reset: w var(--m); }
+.tot .num-m::before { content: "." counter(w, pad3); }

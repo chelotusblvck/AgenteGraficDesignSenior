@@ -1,10 +1,10 @@
-// ESCENA 3 · Taller y control de calidad · frames 450-675
-const Scene3Calidad = {
+// ESCENA 4 · Taller y control de calidad · frames 675-900
+const Scene4Calidad = {
   CHECKS: ["Diagnóstico e inspección", "Mantenimiento y repuestos", "Prueba de ruta y QA"],
 
   init() {
-    const [A, Z] = SCENES.s3;
-    const s = $("#s3");
+    const [A, Z] = SCENES.s4;
+    const s = $("#s4");
     const rows = this.CHECKS.map((t, i) => {
       const y = 116 + i * 80;
       return `
@@ -18,7 +18,7 @@ const Scene3Calidad = {
       <div class="plate" style="height:420px">
         <i class="plate-bg"></i>
         <span class="ot-num mono">#OT-0182</span>
-        <b class="badge b-ok" id="b-apro3">APROBADO POR CLIENTE</b>
+        <b class="badge b-accent" id="b-apro3">EN TALLER</b>
         <b class="badge b-ok" id="b-qa">QA APROBADO</b>
         <i class="rule" style="top:72px"></i>
         <div class="p-row sub-lbl" style="top:84px"><div class="lbl">Lista de verificación</div></div>

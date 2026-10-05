@@ -1,9 +1,9 @@
-// ESCENA 4 · Cierre, entrega y CTA final · frames 675-900 (CTA desde el frame 780)
-const Scene4Cierre = {
+// ESCENA 5 · Cierre, entrega y CTA final · frames 675-900 (CTA desde el frame 780)
+const Scene5Cierre = {
   init() {
-    const [A, Z] = SCENES.s4;
+    const [A, Z] = SCENES.s5;
     const X = CTA_FRAME;          // salida de la notificación / entrada del CTA
-    const s = $("#s4");
+    const s = $("#s5");
     s.innerHTML = `
       <i class="bar"></i><h2 class="title">CIERRE Y ENTREGA</h2>
       <div class="notif">

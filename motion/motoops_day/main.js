@@ -3,8 +3,9 @@ IntroOutro.init();
 Hud.init();
 Scene1Recepcion.init();
 Scene2Diagnostico.init();
-Scene3Calidad.init();
-Scene4Cierre.init();
+Scene3Cliente.init();
+Scene4Calidad.init();
+Scene5Cierre.init();
 
 // Precarga de fuentes y SVGs: el renderizador espera a window.__ready antes de capturar.
 window.__ready = Promise.all([
