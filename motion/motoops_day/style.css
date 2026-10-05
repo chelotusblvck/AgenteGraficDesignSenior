@@ -84,13 +84,18 @@ body { font-family: var(--g360-font-body); color: var(--text); }
 .notif .n-foot { top: 222px; display: flex; align-items: center; gap: 10px; }
 .notif .n-ck { width: 22px; height: 22px; flex: none; }
 .notif .n-ck path { stroke-dasharray: 1; stroke-dashoffset: 1; }
-.cta-logo { position: absolute; left: 32px; top: 200px; width: 300px; opacity: 0; }
-.cta-bar { position: absolute; left: 32px; top: 340px; width: 48px; height: 6px; background: var(--accent); opacity: 0; }
-.cta-h { position: absolute; left: 32px; top: 358px; font: 700 64px/1 var(--g360-font-display); text-transform: uppercase; }
+.cta-bar { position: absolute; left: 32px; top: 215px; width: 48px; height: 6px; background: var(--accent); opacity: 0; }
+.cta-h { position: absolute; left: 32px; top: 233px; font: 700 64px/1 var(--g360-font-display); text-transform: uppercase; }
 .cta-h span { display: block; opacity: 0; }
-.cta-sub { position: absolute; left: 32px; top: 574px; font: 400 20px/1.4 var(--g360-font-body); color: var(--muted); opacity: 0; }
-.cta-url { position: absolute; left: 32px; top: 640px; font: 500 18px/56px var(--g360-font-mono); padding: 0 24px; height: 56px; background: var(--accent); color: var(--black-workshop); border-radius: var(--g360-radius); opacity: 0; }
+.cta-sub { position: absolute; left: 32px; top: 449px; font: 400 20px/1.4 var(--g360-font-body); color: var(--muted); opacity: 0; }
+.cta-url { position: absolute; left: 32px; top: 509px; font: 500 18px/56px var(--g360-font-mono); padding: 0 24px; height: 56px; background: var(--accent); color: var(--black-workshop); border-radius: var(--g360-radius); opacity: 0; }
 
 /* Logos de apertura y cierre (mismo formato que garage360_launch: escala 0.9 -> 1 + fundido) */
 #intro, #outro { inset: 0; display: flex; align-items: center; justify-content: center; }
 #intro-logo, #outro-logo { width: 360px; opacity: 0; }
+
+/* Título introductorio (alineado a la izquierda, bloque centrado en el lienzo) */
+#title-card { inset: 0; }
+#tc-bar { position: absolute; left: 48px; top: 378px; width: 48px; height: 6px; background: var(--accent); opacity: 0; }
+#tc-title { position: absolute; left: 48px; top: 396px; font: 700 80px/1 var(--g360-font-display); color: var(--text); opacity: 0; }
+#tc-title span { display: block; }
