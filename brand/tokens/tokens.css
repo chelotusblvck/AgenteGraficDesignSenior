@@ -1,0 +1,21 @@
+/* Tokens extraídos de docs/brand_guidelines (sección 10). Fuente de verdad para código. */
+:root {
+  --g360-ink: #111315;
+  --g360-graphite: #2B3036;
+  --g360-concrete: #E6E7E8;
+  --g360-white: #FFFFFF;
+  --g360-orange: #FF5A1F;
+  --g360-orange-text: #C2410C;
+  --g360-blue: #2463EB;
+  --g360-success: #15803D;
+  --g360-warning: #B45309;
+  --g360-danger: #B91C1C;
+  --g360-surface: #F5F5F6;
+  --g360-border-dark: #3A4047;
+  --g360-text-dark: #F2F2F3;
+  --g360-font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --g360-font-body: "Inter", system-ui, Arial, sans-serif;
+  --g360-font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --g360-radius: 6px;
+  --g360-space: 8px;
+}
