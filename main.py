@@ -3,15 +3,13 @@ from src.agent import generate_creative_concept
 from src.image_gen import generate_image
 
 def main():
-    # 1. Idea de prueba
-    concepto = "Lanzamiento de una marca de café de especialidad sustentable en Santiago"
+    # Define aquí el servicio de tu plataforma
+    concepto = "Lanzamiento de Garage360, MotoOps y AutoOps para redes sociales y paid media"
     
     print(f"🚀 Iniciando generación para el concepto: '{concepto}'\n")
 
-    # 2. Obtener concepto y copy de Claude
     result = generate_creative_concept(concepto)
     
-    # 3. Guardar el post (.md) en la carpeta output/
     output_md_path = "output/post_01_content.md"
     os.makedirs("output", exist_ok=True)
     
@@ -23,7 +21,6 @@ def main():
         
     print(f"📝 Contenido guardado en: {output_md_path}")
 
-    # 4. Generar la imagen con DALL-E 3
     generate_image(
         prompt_text=result["dalle_prompt"],
         output_path="output/post_01_image.png"
